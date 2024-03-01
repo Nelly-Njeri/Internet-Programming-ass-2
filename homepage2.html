@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartwatches Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .smartwatch {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .smartwatch-item {
+      width: 300px;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .smartwatch-item img {
+     max-width: 100%; /* Ensure images don't exceed the container's width */
+     height: auto; /* Maintain aspect ratio */
+   }
+
+    .cta {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .cta button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1be250;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta button:hover {
+      background-color: #15a3d6;
+    }
+
+    /* Added styles for the user reviews button */
+    .user-reviews-button {
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Smartwatches Showcase</h1>
+    <p>Explore the latest in smartwatch technology</p>
+  </header>
+
+  <section>
+    <h2>Featured Smartwatches</h2>
+    <div class="smartwatch">
+        <div class="smartwatch-item">
+            <img src="images/fitbit_versa_3.jpg" alt="Fitbit Versa 3">
+            <h3>Fitbit Versa 3</h3>
+            <p>Track your fitness goals in style</p>
+            <button onclick="location.href='fitbit_versa_3.html'">Learn More</button>
+          </div>
+          <div class="smartwatch-item">
+            <img src="images/samsung_galaxy_watch_4.jpg" alt="Samsung Galaxy Watch 4">
+            <h3>Samsung Galaxy Watch 4</h3>
+            <p>Take control of your health and style</p>
+            <button onclick="location.href='samsung_galaxy_watch_4.html'">Learn More</button>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why Choose Smartwatches?</h2>
+    <ul>
+        <li>Health and Fitness: Monitor activity, heart rate, and sleep patterns.</li>
+        <li>Notifications: Receive calls, messages, and app alerts on your wrist.</li>
+        <li>Style and Personalization: Match your smartwatch to your outfit or mood.</li>
+    </ul>
+  </section>
+
+  <!-- Newsletter subscription form -->
+  <section id="newsletter-section" style="display: none;">
+    <h2>Stay Connected</h2>
+    <p>Subscribe to our newsletter to receive the latest news and updates:</p>
+    <form id="newsletter-form">
+      <input type="email" id="email" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <section class="cta">
+    <!-- User Reviews button linked to user_reviews.html -->
+    <button class="user-reviews-button" onclick="location.href='user_reviews.html'">User Reviews</button>
+    <!-- Button to toggle the newsletter form -->
+    <button onclick="toggleNewsletterForm()">Stay Connected</button>
+    <button onclick="location.href='#'">Discover Our Smartwatches</button>
+  </section>
+
+  <script>
+    // Function to toggle the visibility of the newsletter form
+    function toggleNewsletterForm() {
+      var newsletterSection = document.getElementById("newsletter-section");
+      if (newsletterSection.style.display === "none" || newsletterSection.style.display === "") {
+        newsletterSection.style.display = "block";
+      } else {
+        newsletterSection.style.display = "none";
+      }
+    }
+
+    // Form validation
+    document.getElementById("newsletter-form").addEventListener("submit", function(event) {
+      var emailInput = document.getElementById("email");
+      var email = emailInput.value;
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
